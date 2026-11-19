@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, "Noto Sans Devanagari", "Nirmala UI", "Mangal", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: #ffffff;
+  color: #0f172a;
+  font-family: var(--font-sans);
+}
+
+.react-flow__edge-textbg {
+  rx: 4;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+}
+
+/* ---------- Print: A4 documents only ---------- */
+@page {
+  size: A4;
+  margin: 16mm 15mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    font-size: 12px;
+  }
+  /* App chrome is marked print:hidden; remove page padding/backgrounds around the document. */
+  .min-h-screen {
+    min-height: 0 !important;
+    background: #fff !important;
+  }
+  main,
+  main > div {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .print-doc {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    color: #0f172a;
+  }
+  .doc-section,
+  .doc-table tr {
+    break-inside: avoid;
+  }
+  .doc-table thead {
+    display: table-header-group;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
